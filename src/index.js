@@ -10,8 +10,8 @@ const main = () => {
   const ops = operations.getOps()
 
   let menu = []
-  ops.map(c => {
-    menu.push(c.id)
+  ops.map(o => {
+    menu.push(o.id)
   })
 
   menu = menu.sort((a, b) => (a > b ? 1 : -1))
