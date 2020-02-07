@@ -80,7 +80,7 @@ const main = () => {
           return answer.exitChoice
         })
 
-      if (exitChoice === afterOpOptions[1]) {
+      if (exitChoice === exit) {
         loop = false
       }
     } while (loop)
