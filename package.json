@@ -1,0 +1,48 @@
+{
+  "name": "z3r0-mdjse",
+  "version": "1.0.0",
+  "description": "menu driven javascript executor",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm run prettier && eslint ./src --fix && npm run build && babel-node dist/index.js",
+    "start-clean": "npm run clean && npm i && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir dist",
+    "prettier": "npx prettier './*.js' './src/*.js' --write",
+    "lint": "./node_modules/.bin/eslint './src/*.js' --fix",
+    "clean": "rm -rf node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifn0tz3r0/z3r0-mdjse.git"
+  },
+  "author": "ifn0tz3r0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ifn0tz3r0/z3r0-mdjse/issues"
+  },
+  "homepage": "https://github.com/ifn0tz3r0/z3r0-mdjse#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.5",
+    "chalk": "^3.0.0",
+    "core-js": "^3.1.4",
+    "inquirer": "^6.4.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "treeify": "^1.1.0"
+  }
+}
