@@ -64,6 +64,7 @@ const main = () => {
       utils.printDivider()
 
       const afterOpOptions = [`[main menu]`, exit]
+
       let exitChoice = await inq
         .prompt([
           {
@@ -71,7 +72,7 @@ const main = () => {
             message: 'op complete, select an option',
             choices: afterOpOptions,
             name: `exitChoice`,
-            default: `main menu`,
+            default: afterOpOptions[0],
             pageSize: constants.MDJSE.MAX_MENU_LEN
           }
         ])
