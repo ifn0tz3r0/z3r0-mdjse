@@ -2,6 +2,9 @@
 
 menu driven javascript executor
 
+node -v
+v8.12.0
+
 utilizes: [inquirer, treeify, chalker, babel]
 
 to install node modules run
