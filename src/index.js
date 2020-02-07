@@ -5,6 +5,7 @@ import { constants, utils, operations, chalker } from './internal'
 const main = () => {
   let loop = true
   let opChoiceCache = null
+  const exit = `[exit]`
 
   const ops = operations.getOps()
 
@@ -14,6 +15,7 @@ const main = () => {
   })
 
   menu = menu.sort((a, b) => (a > b ? 1 : -1))
+  menu.push(exit)
   ;(async () => {
     do {
       await utils.clearConsole()
@@ -34,6 +36,11 @@ const main = () => {
         .then(answer => {
           return answer.opChoice
         })
+
+      if (opChoice === exit) {
+        loop = false
+        break
+      }
 
       opChoiceCache = opChoice
 
@@ -56,7 +63,7 @@ const main = () => {
       utils.printNewline()
       utils.printDivider()
 
-      const afterOpOptions = [`main menu`, `exit`]
+      const afterOpOptions = [`[main menu]`, exit]
       let exitChoice = await inq
         .prompt([
           {
