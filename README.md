@@ -20,7 +20,9 @@ to remove node_nodules, install, and start
 `npm run start-clean`
 
 to disable linter errors, place the following at the top of the file
+```
 /* eslint-disable */
+```
 
 new operations added in `./src/operations.js` will be loaded by the main menu
 
