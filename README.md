@@ -5,7 +5,7 @@ menu driven javascript executor
 node -v
 v8.12.0
 
-utilizes: [nodejs, request-promise, inquirer, treeify, chalker, babel]
+utilizes: [nodejs, async/await, request-promise, inquirer, treeify, chalker, babel]
 
 to install node modules run
 `npm i`
