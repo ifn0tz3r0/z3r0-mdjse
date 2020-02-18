@@ -169,7 +169,18 @@ export default class operations {
         } else {
           throw new Error(`error: request returned null or undefined`)
         }
+      }) /*<------ add a comma when adding a new op...*/
+      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+      /*
+      new op(`z3r0-mdjse.new.unnamed.op`, async () => {
+
+        //your code here...
+        //your code here...
+        //your code here...
+        //your code here...
+
       })
+      */
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
     ]
   }
