@@ -6,7 +6,7 @@
   "scripts": {
     "start": "rm -rf ./dist && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
     "start-clean": "npm run clean && npm i && npm start",
-    "start-win": "if exist dist ( rd /s /q dist ) && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
+    "start-win": "if exist dist ( rmdir /s /q dist ) && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
     "start-clean-win": "npm run clean-win && npm i && npm run start-win",
     "build": "babel src --out-dir dist",
     "prettier": "npx prettier \"./*.js\" \"./src/*.js\" --write",
