@@ -7,22 +7,28 @@ v8.12.0
 
 utilizes: [nodejs, async/await, request-promise, inquirer, treeify, chalker, babel, JSON.stringify]
 
-to install node modules run
-`npm i`
+1. clone and install node modules
 
-then run
-`npm start`
+`npm i` on mac or windows
+
+1. then run
+`npm start` on mac
+`npm run start-win` on windows
 
 to remove node_modules
-`npm run clean`
+`npm run clean` on mac
+`npm run clean-win` on windows
 
-to remove node_nodules, install, and start
-`npm run start-clean`
+to remove node_nodules, re-install node_modules, and re-start
+`npm run start-clean` on mac
+`npm run start-clean-win` on windows
 
 to disable linter errors, place the following at the top of the file
 ```
 /* eslint-disable */
 ```
+to disable lint altogher, remove the `npm run lint` sub-command within package.json
+
 
 
 ```
