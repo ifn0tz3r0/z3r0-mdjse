@@ -2,10 +2,10 @@
 
 menu driven javascript executor
 
-node -v
+my node -v
 v8.12.0
 
-utilizes: [nodejs, async/await, request-promise, inquirer, treeify, chalker, babel]
+utilizes: [nodejs, async/await, request-promise, inquirer, treeify, chalker, babel, JSON.stringify]
 
 to install node modules run
 `npm i`
@@ -23,9 +23,6 @@ to disable linter errors, place the following at the top of the file
 ```
 /* eslint-disable */
 ```
-
-new operations added in `./src/operations.js` will be loaded by the main menu
-
 
 
 ```
@@ -53,3 +50,53 @@ z3r0-mdjse
   z3r0-mdjse.string.input 
   z3r0-mdjse.throw.error
 ```
+
+
+new operations added in `./src/operations.js` will be loaded by the main menu
+
+example of an 'op' in operations.js:
+```
+//  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+new op(`z3r0-mdjse.http.get.bitcoin.prices.treeified`, async () => {
+let j = await services.getBtcPrices()
+
+if (j !== null && typeof j !== constants.UNDEF) {
+    let showTreeValues = true
+    console.log(treeify.asTree(j, showTreeValues))
+} else {
+    throw new Error(`error: request returned null or undefined`)
+}
+}) /*<------ add a comma when adding a new op...*/
+//  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+/*
+new op(`z3r0-mdjse.new.unnamed.op`, async () => {
+
+    //your code here...
+    //your code here...
+    //your code here...
+    //your code here...
+
+})
+*/
+//  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+```
+
+`src/services.js`
+```
+  static async getBtcPrices() {
+    var options = {
+      method: `GET`,
+      uri: `https://blockchain.info/ticker`,
+      json: true
+    }
+    console.log(treeify.asTree(options, true))
+    return await rp(options)
+      .then(j => {
+        return j
+      })
+      .catch(e => {
+        console.log(e)
+        return null
+      })
+  }
+  ```
