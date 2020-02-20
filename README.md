@@ -92,18 +92,27 @@ new op(`z3r0-mdjse.new.unnamed.op`, async () => {
 `src/services.js`
 ```
   static async getBtcPrices() {
-    var options = {
+    return await fetch(`https://blockchain.info/ticker`, {
       method: `GET`,
-      uri: `https://blockchain.info/ticker`,
-      json: true
-    }
-    console.log(treeify.asTree(options, true))
-    return await rp(options)
+      headers: {
+        Accept: `application/json`
+      }
+    })
+      .then(r => {
+        console.log(`\r\n`)
+        console.log(r.ok)
+        console.log(r.status)
+        console.log(r.statusText)
+        console.log(r.headers.raw())
+        console.log(r.headers.get(`content-type`))
+        console.log(`\r\n`)
+        return r.json()
+      })
       .then(j => {
         return j
       })
       .catch(e => {
-        console.log(e)
+        console.error(e)
         return null
       })
   }
