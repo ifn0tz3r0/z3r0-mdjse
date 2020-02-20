@@ -8,7 +8,7 @@ export default class services {
         Accept: `application/json`
       }
     })
-      .then(function(r) {
+      .then(r => {
         console.log(`\r\n`)
         console.log(r.ok)
         console.log(r.status)
@@ -18,7 +18,7 @@ export default class services {
         console.log(`\r\n`)
         return r.json()
       })
-      .then(function(j) {
+      .then(j => {
         return j
       })
       .catch(e => {
