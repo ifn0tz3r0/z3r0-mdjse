@@ -8,7 +8,7 @@
     "start-clean": "npm run clean && npm i && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist",
-    "prettier": "npx prettier './*.js' './src/*.js' --write",
+    "prettier": "npx prettier \"./*.js\" \"./src/*.js\" --write",
     "lint": "./node_modules/.bin/eslint './src/*.js' --fix",
     "clean": "rm -rf node_modules"
   },
