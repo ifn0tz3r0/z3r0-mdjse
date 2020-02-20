@@ -123,25 +123,6 @@ export default class operations {
         }
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.http.get.bitcoin.prices.full.response`, async () => {
-        let j = await services.getBtcPricesFullResponse()
-
-        if (j !== null && typeof j !== constants.UNDEF) {
-          let fullResponse = j
-
-          let responseBody = fullResponse.body
-          let statusCode = fullResponse.statusCode
-          utils.printDivider()
-          console.log(`request returned statusCode: ${statusCode}`)
-          utils.printDivider()
-          console.log(`request returned body:`)
-          utils.printDivider()
-          console.log(responseBody)
-        } else {
-          throw new Error(`error: request returned null or undefined`)
-        }
-      }),
-      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.http.get.bitcoin.price.USD`, async () => {
         let j = await services.getBtcPrices()
 
