@@ -3,9 +3,9 @@ const fetch = require('node-fetch')
 export default class services {
   static async getBtcPrices() {
     return await fetch(`https://blockchain.info/ticker`, {
-      method: 'GET',
+      method: `GET`,
       headers: {
-        Accept: 'application/json'
+        Accept: `application/json`
       }
     })
       .then(function(r) {
@@ -14,7 +14,7 @@ export default class services {
         console.log(r.status)
         console.log(r.statusText)
         console.log(r.headers.raw())
-        console.log(r.headers.get('content-type'))
+        console.log(r.headers.get(`content-type`))
         console.log(`\r\n`)
         return r.json()
       })
