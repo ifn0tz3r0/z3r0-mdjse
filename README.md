@@ -58,14 +58,14 @@ example of an 'op' in operations.js:
 ```
 //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
 new op(`z3r0-mdjse.http.get.bitcoin.prices.treeified`, async () => {
-let j = await services.getBtcPrices()
+    let j = await services.getBtcPrices()
 
-if (j !== null && typeof j !== constants.UNDEF) {
-    let showTreeValues = true
-    console.log(treeify.asTree(j, showTreeValues))
-} else {
-    throw new Error(`error: request returned null or undefined`)
-}
+    if (j !== null && typeof j !== constants.UNDEF) {
+        let showTreeValues = true
+        console.log(treeify.asTree(j, showTreeValues))
+    } else {
+        throw new Error(`error: request returned null or undefined`)
+    }
 }) /*<------ add a comma when adding a new op...*/
 //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
 /*
