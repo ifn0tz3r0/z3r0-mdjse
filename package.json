@@ -4,13 +4,15 @@
   "description": "menu driven javascript executor",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm run prettier && eslint ./src --fix && npm run build && babel-node dist/index.js",
+    "start": "rm -rf ./dist && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
     "start-clean": "npm run clean && npm i && npm start",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-win": "rd /s /q \"dist\" && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
+    "start-clean-win": "npm run clean-win && npm i && npm run start-win",
     "build": "babel src --out-dir dist",
     "prettier": "npx prettier \"./*.js\" \"./src/*.js\" --write",
-    "lint": "./node_modules/.bin/eslint './src/*.js' --fix",
-    "clean": "rm -rf node_modules"
+    "lint": "./node_modules/.bin/eslint \"./src/*.js\" --fix",
+    "clean": "rm -rf node_modules",
+    "clean-win": "rd /s /q \"node_modules\""
   },
   "repository": {
     "type": "git",
