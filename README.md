@@ -5,15 +5,17 @@ menu driven javascript executor
 my node -v
 v8.12.0
 
-utilizes: [nodejs, async/await, request-promise, inquirer, treeify, chalker, babel, JSON.stringify]
+utilizes: [nodejs, async/await, fetch, inquirer, treeify, chalker, babel, JSON.stringify]
 
 1. clone and install node modules
 
-`npm i` on mac or windows
+    `npm i` on mac or windows
 
 1. then run
-`npm start` on mac
-`npm run start-win` on windows
+    `npm start` on mac
+    `npm run start-win` on windows
+
+
 
 to remove node_modules
 `npm run clean` on mac
