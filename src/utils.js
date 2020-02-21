@@ -29,6 +29,12 @@ export default class utils {
   static printNewline() {
     console.log(`\r\n`)
   }
+  static regexStringContainsAllCharacters(s) {
+    return /^[a-zA-Z]+$/.test(s)
+  }
+  static regexStringContainsAllIntegers(s) {
+    return /^\d+$/.test(s)
+  }
   static dateTimeNow() {
     return new Date(Date.now()).getTime()
   }

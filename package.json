@@ -4,6 +4,9 @@
   "description": "menu driven javascript executor",
   "main": "src/index.js",
   "scripts": {
+    "q": "rm -rf ./dist && npm run prettier && npm run build && babel-node dist/index.js",
+    "q-win": "if exist dist ( rmdir /s /q dist ) && npm run prettier && npm run build && babel-node dist/index.js",
+    "prettydiff": "npm run prettier && git diff",
     "start": "rm -rf ./dist && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",
     "start-clean": "npm run clean && npm i && npm start",
     "start-win": "if exist dist ( rmdir /s /q dist ) && npm run prettier && npm run lint && npm run build && babel-node dist/index.js",

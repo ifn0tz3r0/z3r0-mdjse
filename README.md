@@ -29,7 +29,12 @@ to disable linter errors, place the following at the top of the file
 ```
 /* eslint-disable */
 ```
-to disable lint altogher, remove the `npm run lint` sub-command within package.json
+
+to run without lint `npm run q` (quick) on mac
+
+to run without lint `npm run q-win` (quick) on windows
+
+to disable lint altogether, remove the `npm run lint` sub-command within package.json
 
 
 
