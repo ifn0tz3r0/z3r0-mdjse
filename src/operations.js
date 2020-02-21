@@ -167,7 +167,7 @@ export default class operations {
           let charsOnly = true
           let allowWhiteSpace = false
           let name = await inqer.inputStr(
-            `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z) (3) must not contain whitespace]`,
+            `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z) (3) must not contain whitespace`,
             minLen,
             charsOnly,
             allowWhiteSpace
