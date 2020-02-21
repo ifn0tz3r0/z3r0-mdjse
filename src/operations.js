@@ -31,9 +31,9 @@ export default class operations {
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.press.any.key.to.continue`, async () => {
         await utils.clearConsole()
-        await utils.printNewline()
+        utils.printNewline()
         await utils.anyKey()
-        await utils.printNewline()
+        utils.printNewline()
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.print.iso.date.string`, async () => {
