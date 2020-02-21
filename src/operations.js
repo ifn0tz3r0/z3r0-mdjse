@@ -53,8 +53,8 @@ export default class operations {
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.print.random.int.with.input`, async () => {
-        let min = parseInt(await inqer.inputStr(`input minimum int value`))
-        let max = parseInt(await inqer.inputStr(`input maximum int value`))
+        let min = parseInt(await inqer.inputInt(`input minimum int value`))
+        let max = parseInt(await inqer.inputInt(`input maximum int value`))
 
         let r = utils.randomInt(min, max)
 
