@@ -21,7 +21,7 @@ export default class utils {
     return Array(str.length + 1).join(char)
   }
   static randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min)
   }
   static printDivider() {
     console.log(constants.MDJSE.DIVIDER_STR)
