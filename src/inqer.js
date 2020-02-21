@@ -10,8 +10,8 @@ export default class inqer {
         name: 'i',
         message: msg,
         validate: async i => {
-          if (i !== null && typeof i !== `undefined`) {
-            if (typeof i === `string`) {
+          if (i !== null && typeof i !== constants.UNDEF) {
+            if (typeof i === constants.STR) {
               if (i.length >= minLen) {
                 if (charsOnly) {
                   if (utils.regexStringContainsAllCharacters(i)) {
@@ -48,8 +48,8 @@ export default class inqer {
         default: def,
         message: msg,
         validate: async i => {
-          if (i !== null && typeof i !== `undefined`) {
-            if (typeof i === constants.STRING) {
+          if (i !== null && typeof i !== constants.UNDEF) {
+            if (typeof i === constants.STR) {
               if (utils.regexStringContainsAllIntegers(i)) {
                 return true
               } else {
@@ -78,8 +78,8 @@ export default class inqer {
         name: 'i',
         message: msg,
         validate: async i => {
-          if (i !== null && typeof i !== `undefined`) {
-            if (typeof i === `string`) {
+          if (i !== null && typeof i !== constants.UNDEF) {
+            if (typeof i === constants.STR) {
               if (i.length >= minLen) {
                 return true
               } else {
