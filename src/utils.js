@@ -35,6 +35,9 @@ export default class utils {
   static regexStringContainsAllIntegers(s) {
     return /^\d+$/.test(s)
   }
+  static regexStringHasWhitespace(s) {
+    return /\s/.test(s)
+  }
   static dateTimeNow() {
     return new Date(Date.now()).getTime()
   }
