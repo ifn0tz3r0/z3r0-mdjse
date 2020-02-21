@@ -31,9 +31,9 @@ export default class operations {
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.press.any.key.to.continue`, async () => {
         await utils.clearConsole()
-        await utils.printNewline()
+        utils.printNewline()
         await utils.anyKey()
-        await utils.printNewline()
+        utils.printNewline()
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.print.iso.date.string`, async () => {
@@ -52,21 +52,42 @@ export default class operations {
         chalker.printBlackBgYellow(`this message was printed with chalker`)
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.print.random.int.with.input`, async () => {
-        let min = parseInt(await inqer.inputStr(`input minimum int value`))
-        let max = parseInt(await inqer.inputStr(`input maximum int value`))
-
-        let r = utils.randomInt(min, max)
-
-        let result = {
-          min: min,
-          max: max,
-          result: r
-        }
-
-        let showValues = true
-        console.log(treeify.asTree(result, showValues))
+      new op(`z3r0-mdjse.input.password.with.minimum.required.length`, async () => {
+        let minPasswordLen = 5
+        let password = await inqer.inputPass(
+          `enter your new password (must be at least ${minPasswordLen} characters)`,
+          minPasswordLen
+        )
+        console.log(`you entered [${password}]`)
       }),
+      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+      new op(
+        `z3r0-mdjse.print.random.int.with.input.and.validation.and.default.values`,
+        async () => {
+          let radix = 10
+          let defaultMin = utils.randomInt(0, 10000)
+          let defaultMax = utils.randomInt(0, 10000)
+          let min = parseInt(
+            await inqer.inputInt(`input minimum int value (must be >= 0)`, defaultMin),
+            radix
+          )
+          let max = parseInt(
+            await inqer.inputInt(`input minimum int value (must be >= 0)`, defaultMax),
+            radix
+          )
+
+          let r = utils.randomInt(min, max)
+
+          let result = {
+            min: min,
+            max: max,
+            result: r
+          }
+
+          let showValues = true
+          console.log(treeify.asTree(result, showValues))
+        }
+      ),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.print.raw.json.object`, async () => {
         let jsonObject = {
@@ -108,10 +129,36 @@ export default class operations {
         console.log(treeify.asTree(jsonObject, showValues))
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.string.input`, async () => {
+      new op(`z3r0-mdjse.string.input.with.validation`, async () => {
         let name = await inqer.inputStr(`what is your first name?`)
         console.log(`your first name is [${name}]`)
       }),
+      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+      new op(
+        `z3r0-mdjse.string.input.with.validation.and.minimum.required.length`,
+        async () => {
+          let minLen = 2
+          let name = await inqer.inputStr(
+            `what is your first name? (acceptable values must be 2 characters or longer)`,
+            minLen
+          )
+          console.log(`your first name is [${name}]`)
+        }
+      ),
+      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+      new op(
+        `z3r0-mdjse.string.input.with.validation.and.minimum.required.length.characters.only`,
+        async () => {
+          let minLen = 2
+          let charsOnly = true
+          let name = await inqer.inputStr(
+            `what is your first name? (acceptable values must be 2 characters or longer and must be letters of the alphabet (a-z or A-Z)`,
+            minLen,
+            charsOnly
+          )
+          console.log(`your first name is [${name}]`)
+        }
+      ),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(`z3r0-mdjse.http.get.bitcoin.prices`, async () => {
         let j = await services.getBtcPrices()
