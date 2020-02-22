@@ -72,7 +72,7 @@ export default class operations {
             radix
           )
           let max = parseInt(
-            await inqer.inputInt(`input minimum int value (must be >= 0)`, defaultMax),
+            await inqer.inputInt(`input maximum int value (must be >= 0)`, defaultMax),
             radix
           )
 
