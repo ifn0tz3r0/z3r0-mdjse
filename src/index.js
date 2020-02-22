@@ -26,7 +26,7 @@ const main = () => {
         .prompt([
           {
             type: 'list',
-            message: 'select an option:',
+            message: 'select an operation:',
             choices: menu,
             name: `opChoice`,
             default: opChoiceCache,
@@ -69,7 +69,7 @@ const main = () => {
         .prompt([
           {
             type: 'list',
-            message: 'op complete, select an option',
+            message: 'op complete, select an option:',
             choices: afterOpOptions,
             name: `exitChoice`,
             default: afterOpOptions[0],
