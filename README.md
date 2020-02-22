@@ -1,5 +1,7 @@
 # z3r0-mdjse
 
+![](gitimg/z3r0-mdjse.gif)
+
 menu driven javascript executor
 
 my node -v
