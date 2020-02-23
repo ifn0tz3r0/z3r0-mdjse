@@ -146,7 +146,7 @@ export default class operations {
         console.log(treeify.asTree(jsonObject, showValues))
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.string.input.with.validation`, async () => {
+      new op(`z3r0-mdjse.string.input`, async () => {
         let name = await inqer.inputStr(`what is your first name?`)
         console.log(`your first name is [${name}]`)
       }),
@@ -168,12 +168,10 @@ export default class operations {
         async () => {
           let minLen = 2
           let charsOnly = true
-          let allowWhiteSpace = true
           let name = await inqer.inputStr(
             `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z) (3) whitespace not allowed:`,
             minLen,
-            charsOnly,
-            allowWhiteSpace
+            charsOnly
           )
           console.log(`your first name is [${name}]`)
         }
