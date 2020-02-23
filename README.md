@@ -49,7 +49,8 @@ z3r0-mdjse
   z3r0-mdjse.http.get.bitcoin.price.USD
   z3r0-mdjse.http.get.bitcoin.prices
   z3r0-mdjse.http.get.bitcoin.prices.treeified
-  z3r0-mdjse.input.password.with.minimum.required.length
+  z3r0-mdjse.input.password.with.minimum.required.length.input.hidden
+  z3r0-mdjse.input.password.with.minimum.required.length.input.masked
   z3r0-mdjse.press.any.key.to.continue
   z3r0-mdjse.print.app.constants.treeified
   z3r0-mdjse.print.iso.date.string
@@ -62,10 +63,9 @@ z3r0-mdjse
   z3r0-mdjse.print.variant.treeified.json.object
   z3r0-mdjse.print.with.chalker
   z3r0-mdjse.sleep
-  z3r0-mdjse.string.input.with.validation
+  z3r0-mdjse.string.input
   z3r0-mdjse.string.input.with.validation.and.minimum.required.length
-  z3r0-mdjse.string.input.with.validation.and.minimum.required.length.characters.only
-  z3r0-mdjse.string.input.with.validation.and.minimum.required.length.characters.only.disallow.whitespace
+  z3r0-mdjse.string.input.with.validation.and.minimum.required.length.only.allow.charcters.a-zA-Z
   z3r0-mdjse.throw.error
   [exit]
 ```
