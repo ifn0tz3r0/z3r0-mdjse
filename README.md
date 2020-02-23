@@ -44,30 +44,42 @@ to disable lint altogether, remove the `npm run lint` sub-command within package
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 z3r0-mdjse
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-? select an option: (Use arrow keys)
-❯ z3r0-mdjse.hello.world
-  z3r0-mdjse.http.get.bitcoin.price.USD
-  z3r0-mdjse.http.get.bitcoin.prices
-  z3r0-mdjse.http.get.bitcoin.prices.treeified
-  z3r0-mdjse.input.password.with.minimum.required.length.input.hidden
-  z3r0-mdjse.input.password.with.minimum.required.length.input.masked
-  z3r0-mdjse.press.any.key.to.continue
-  z3r0-mdjse.print.app.constants.treeified
-  z3r0-mdjse.print.iso.date.string
-  z3r0-mdjse.print.new.guid
-  z3r0-mdjse.print.random.int.0.to.100
-  z3r0-mdjse.print.random.int.with.input.and.validation.and.default.values
-  z3r0-mdjse.print.raw.json.object
-  z3r0-mdjse.print.stringified.json.object
-  z3r0-mdjse.print.treeified.json.object
-  z3r0-mdjse.print.variant.treeified.json.object
-  z3r0-mdjse.print.with.chalker
-  z3r0-mdjse.sleep
-  z3r0-mdjse.string.input
-  z3r0-mdjse.string.input.with.validation.and.minimum.required.length
-  z3r0-mdjse.string.input.with.validation.and.minimum.required.length.only.allow.charcters.a-zA-Z
-  z3r0-mdjse.throw.error
-  [exit]
+database.dbExists() z3r0-mdjse-database.sqlite3
+database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+{db detected @ z3r0-mdjse-database.sqlite3 = true}
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+? select an operation: (Use arrow keys)
+❯ z3r0-mdjse.hello.world 
+  z3r0-mdjse.http.get.bitcoin.price.USD 
+  z3r0-mdjse.http.get.bitcoin.prices 
+  z3r0-mdjse.http.get.bitcoin.prices.treeified 
+  z3r0-mdjse.input.password.with.minimum.required.length.input.hidden 
+  z3r0-mdjse.input.password.with.minimum.required.length.input.masked 
+  z3r0-mdjse.press.any.key.to.continue 
+  z3r0-mdjse.print.iso.date.string 
+  z3r0-mdjse.print.mdjse.constants.treeified 
+  z3r0-mdjse.print.new.guid 
+  z3r0-mdjse.print.random.int.0.to.100 
+  z3r0-mdjse.print.random.int.with.input.and.validation.and.default.values 
+  z3r0-mdjse.print.raw.json.object 
+  z3r0-mdjse.print.stringified.json.object 
+  z3r0-mdjse.print.treeified.json.object 
+  z3r0-mdjse.print.variant.treeified.json.object 
+  z3r0-mdjse.print.with.chalker 
+  z3r0-mdjse.sleep 
+  z3r0-mdjse.sqlite3.database.admin.create.database.with.notes.table 
+  z3r0-mdjse.sqlite3.database.admin.delete.all.notes 
+  z3r0-mdjse.sqlite3.database.admin.delete.database 
+  z3r0-mdjse.sqlite3.database.user.does.table.exist 
+  z3r0-mdjse.sqlite3.database.user.list.all.tables 
+  z3r0-mdjse.sqlite3.database.user.notes.get.notes.count 
+  z3r0-mdjse.sqlite3.database.user.notes.list.all.notes.in.menu.get.note.by.key 
+  z3r0-mdjse.sqlite3.database.user.notes.new.note 
+  z3r0-mdjse.string.input 
+  z3r0-mdjse.string.input.with.validation.and.minimum.required.length 
+  z3r0-mdjse.string.input.with.validation.and.minimum.required.length.only.allow.charcters.a-zA-Z 
+  z3r0-mdjse.throw.error 
+  [exit] 
 ```
 
 
@@ -128,3 +140,40 @@ new op(`z3r0-mdjse.new.unnamed.op`, async () => {
       })
   }
   ```
+
+sqlite3
+
+```
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+z3r0-mdjse
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+{db detected @ z3r0-mdjse-database.sqlite3 = true}
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+? select an operation: z3r0-mdjse.sqlite3.database.user.notes.new.note
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+? new note: first note!
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+database.connect() success = true, connected @ z3r0-mdjse-database.sqlite3
+database.getAllTables()
+database.runSelect() sql = SELECT name FROM sqlite_master WHERE type='table'
+[ { name: 'notes' } ]
+{ name: 'notes' }
+database.addNewNote(first note!) target table [notes] exists, proceeding
+database.runSql(insert into notes (key, created, note)
+          values (?, ?, ?))
+database.addNewNote(first note!) new note added to database table [notes] :: 2dc117bd-e9ec-47e8-a972-db5d39227d37 :: 2020-02-23T10:43:30.301Z :: [first note!]
+database.disconnect()
+
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+? op complete, select an option: (Use arrow keys)
+❯ [main menu] 
+  [exit] 
+```

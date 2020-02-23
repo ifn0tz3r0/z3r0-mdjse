@@ -3,11 +3,12 @@ const inq = require(`inquirer`)
 import { constants, utils } from './internal'
 
 export default class inqer {
-  static async inputStr(msg, minLen = 0, charsOnly = false) {
+  static async inputStr(msg, deflt = ``, minLen = 0, charsOnly = false) {
     var q = [
       {
         type: 'input',
         name: 'i',
+        default: deflt,
         message: msg,
         validate: async i => {
           if (i !== null && typeof i !== constants.UNDEF) {
@@ -70,14 +71,13 @@ export default class inqer {
     })
   }
 
-  static async inputPass(msg, minLen = 1, maskChar = null) {
+  static async inputPass(msg, minLen = 1, maskChar = `X`) {
     var q = [
       {
         type: 'password',
-        mask: constants.INQER_PASSWORD_MASK_CHAR,
+        mask: maskChar,
         name: 'i',
         message: msg,
-        mask: maskChar,
         validate: async i => {
           if (i !== null && typeof i !== constants.UNDEF) {
             if (typeof i === constants.STR) {
