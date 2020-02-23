@@ -72,7 +72,9 @@ export default class database {
         await this.runSql(
           `create table ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}(key text primary key, created text, note text)`
         )
-        console.log(`${sfnc} ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} table created`)
+        console.log(
+          `${sfnc} [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] table created`
+        )
       } else {
         console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
       }
