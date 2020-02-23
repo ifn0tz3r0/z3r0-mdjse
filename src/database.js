@@ -72,20 +72,10 @@ export default class database {
       `${sfnc} attempting to create table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}]`
     )
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        await this.runSql(
-          `create table ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}(key text primary key, created text, note text)`
-        )
-        console.log(
-          `${sfnc} [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] table created`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    await this.runSql(
+      `create table ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}(key text primary key, created text, note text)`
+    )
+    console.log(`${sfnc} [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] table created`)
   }
 
   async connect() {
