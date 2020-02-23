@@ -274,8 +274,6 @@ export default class database {
 
   async getNoteByKey(k) {
     const sfnc = `${this.constructor.name}.getNoteByKey(${k})`
-    console.log(k.length)
-
     console.log(`${sfnc}`)
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
