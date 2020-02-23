@@ -365,6 +365,7 @@ export default class operations {
           let db = new database()
           await db.connect()
           let countRows = await db.getNumNotes()
+          db.disconnect()
 
           if (countRows !== null && typeof countRows !== constants.UNDEF) {
             if (countRows.constructor === Array) {
