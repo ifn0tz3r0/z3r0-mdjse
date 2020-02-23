@@ -24,13 +24,14 @@ export default class database {
 
     if (!database.dbExists()) {
       return new Promise(resolve => {
-        new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
+        let d = new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
           if (e) {
             resolve(false)
           } else {
             resolve(true)
           }
         })
+        d.close()
       }).then(async r => {
         if (r === true) {
           console.log(`${sfnc} success = ${r}`)
