@@ -183,7 +183,7 @@ export default class database {
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
       if (this._data.db.open === true) {
-        return await this.runSelect(`SELECT name FROM sqlite_master WHERE type='table'`)
+        return await this.runSelect(`select name from sqlite_master where type = 'table'`)
       } else {
         console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
       }
