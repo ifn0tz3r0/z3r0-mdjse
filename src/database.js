@@ -92,20 +92,19 @@ export default class database {
           constants.MDJSE.DATABASE.DATABASE_FILE,
           e => {
             if (e) {
-              console.log(e)
-              resolve(null)
+              resolve(false)
             } else {
               resolve(true)
             }
           }
         )
-      }).then(async r => {
+      }).then(r => {
         if (r) {
           console.log(
             `${sfnc} success = ${r}, connected @ ${constants.MDJSE.DATABASE.DATABASE_FILE}`
           )
         } else {
-          console.log(
+          throw new Error(
             `${sfnc} success = ${r}, could not connect @ ${constants.MDJSE.DATABASE.DATABASE_FILE}`
           )
         }
