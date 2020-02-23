@@ -3,7 +3,7 @@ const inq = require(`inquirer`)
 import { constants, utils } from './internal'
 
 export default class inqer {
-  static async inputStr(msg, minLen = 0, charsOnly = false, allowWhitespace = true) {
+  static async inputStr(msg, minLen = 0, charsOnly = false) {
     var q = [
       {
         type: 'input',
@@ -15,15 +15,7 @@ export default class inqer {
               if (i.length >= minLen) {
                 if (charsOnly) {
                   if (utils.regexStringContainsAllCharacters(i)) {
-                    if (allowWhitespace === false) {
-                      if (!utils.regexStringHasWhitespace(i)) {
-                        return true
-                      } else {
-                        return false
-                      }
-                    } else {
-                      return true
-                    }
+                    return true
                   } else {
                     return false
                   }
