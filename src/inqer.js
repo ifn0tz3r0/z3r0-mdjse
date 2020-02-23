@@ -78,13 +78,14 @@ export default class inqer {
     })
   }
 
-  static async inputPass(msg, minLen = 1) {
+  static async inputPass(msg, minLen = 1, maskChar = null) {
     var q = [
       {
         type: 'password',
         mask: constants.INQER_PASSWORD_MASK_CHAR,
         name: 'i',
         message: msg,
+        mask: maskChar,
         validate: async i => {
           if (i !== null && typeof i !== constants.UNDEF) {
             if (typeof i === constants.STR) {
