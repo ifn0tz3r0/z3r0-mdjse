@@ -72,8 +72,7 @@ const main = () => {
             message: 'op complete, select an option:',
             choices: afterOpOptions,
             name: `exitChoice`,
-            default: afterOpOptions[0],
-            pageSize: constants.MDJSE.MAX_MENU_LEN
+            default: afterOpOptions[0]
           }
         ])
         .then(answer => {
