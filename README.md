@@ -147,42 +147,33 @@ sqlite3
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 z3r0-mdjse
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-database.dbExists() z3r0-mdjse-database.sqlite3
-database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
 {db detected @ z3r0-mdjse-database.sqlite3 = true}
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-? select an operation: z3r0-mdjse.sqlite3.database.user.notes.list.all.notes
+? select an operation: z3r0-mdjse.sqlite3.database.user.notes.new.note
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
-database.dbExists() z3r0-mdjse-database.sqlite3
-database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
-database.dbExists() z3r0-mdjse-database.sqlite3
-database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
-database.runSelect() sql = select count (*) as count from notes
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
+? new note: first note!
+static.database.dbExists() z3r0-mdjse-database.sqlite3
+static.database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
 database.connect() success = true, connected @ z3r0-mdjse-database.sqlite3
-1 row(s) returned
-[ { count: 3 } ]
-there are 3 rows in the notes table
-database.getAllNotes()
-database.runSelect() sql = select * from notes order by created desc
-3 row(s) returned
-[ { key: '4c8702e3-38c9-497d-9819-785878881b1b',
-    created: '2020-02-23T07:50:21.515Z',
-    note: 'third note.' },
-  { key: 'b3f28302-891d-4b5b-ba61-fd59ea75f51d',
-    created: '2020-02-23T07:50:17.108Z',
-    note: '2nd note.' },
-  { key: '248a4b7f-4fc4-46ce-9b12-30f585df3467',
-    created: '2020-02-23T07:50:12.231Z',
-    note: 'first note.' } ]
-4c8702e3-38c9-497d-9819-785878881b1b::2020-02-23T07:50:21.515Z::third note.
-b3f28302-891d-4b5b-ba61-fd59ea75f51d::2020-02-23T07:50:17.108Z::2nd note.
-248a4b7f-4fc4-46ce-9b12-30f585df3467::2020-02-23T07:50:12.231Z::first note.
+database.getAllTables()
+database.runSelect() sql = SELECT name FROM sqlite_master WHERE type='table'
+[ { name: 'notes' } ]
+{ name: 'notes' }
+database.addNewNote(first note!) target table [notes] exists, proceeding
+database.runSql(insert into notes (key, created, note)
+          values (?, ?, ?))
+database.addNewNote(first note!) new note added to database table [notes] :: 2dc117bd-e9ec-47e8-a972-db5d39227d37 :: 2020-02-23T10:43:30.301Z :: [first note!]
+database.disconnect()
 
 
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ? op complete, select an option: (Use arrow keys)
 ❯ [main menu] 
-  [exit]
+  [exit] 
 ```
