@@ -307,28 +307,6 @@ export default class database {
     }
   }
 
-  // return await this.select(
-  //   `SELECT key FROM ${constants.APP.DB.TABLES.OPRESULTS} ORDER BY datestart DESC`
-  // )
-
-  async getAllKeys() {
-    const sfnc = `${this.constructor.name}.getAllNoteKeys()`
-
-    console.log(`${sfnc}`)
-
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(
-          `select * from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} order by created asc`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
-  }
-
   async getAllNoteKeys() {
     const sfnc = `${this.constructor.name}.getAllNoteKeys()`
 
