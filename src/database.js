@@ -242,38 +242,30 @@ export default class database {
   async addNewNote(s) {
     const sfnc = `${this.constructor.name}.addNewNote(${s})`
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        let notesTableExists = await this.tableExists(
-          constants.MDJSE.DATABASE.TABLE_NAMES.NOTES
-        )
+    let notesTableExists = await this.tableExists(
+      constants.MDJSE.DATABASE.TABLE_NAMES.NOTES
+    )
 
-        if (notesTableExists === true) {
-          const id = utils.uuidv4()
-          const created = utils.dateTimeNowISO()
+    if (notesTableExists === true) {
+      const id = utils.uuidv4()
+      const created = utils.dateTimeNowISO()
 
-          console.log(
-            `${sfnc} target table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] exists, proceeding`
-          )
+      console.log(
+        `${sfnc} target table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] exists, proceeding`
+      )
 
-          await this.runSql(
-            `insert into ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} (key, created, note)
-          values (?, ?, ?)`,
-            [`${id}`, `${created}`, `${s}`]
-          )
-          console.log(
-            `${sfnc} new note added to database table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] :: ${id} :: ${created} :: [${s}]`
-          )
-        } else {
-          throw new Error(
-            `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_ATTEMPT_MADE_ON_NONEXIST_TABLE}`
-          )
-        }
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
+      await this.runSql(
+        `insert into ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} (key, created, note)
+      values (?, ?, ?)`,
+        [`${id}`, `${created}`, `${s}`]
+      )
+      console.log(
+        `${sfnc} new note added to database table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}] :: ${id} :: ${created} :: [${s}]`
+      )
     } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
+      throw new Error(
+        `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_ATTEMPT_MADE_ON_NONEXIST_TABLE}`
+      )
     }
   }
 
