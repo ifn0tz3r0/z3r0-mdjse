@@ -31,7 +31,11 @@ export default class database {
             resolve(true)
           }
         })
-        d.close()
+        if (d !== null && typeof d !== constants.UNDEF) {
+          console.log(d)
+          console.log(`closing database connection post creation`)
+          d.close()
+        }
       }).then(async r => {
         if (r === true) {
           console.log(`${sfnc} success = ${r}`)
