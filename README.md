@@ -67,9 +67,10 @@ database.dbExists() z3r0-mdjse-database.sqlite3 exists = true
   z3r0-mdjse.print.variant.treeified.json.object 
   z3r0-mdjse.print.with.chalker 
   z3r0-mdjse.sleep 
-  z3r0-mdjse.sqlite3.database.admin.create.with.notes.table 
+  z3r0-mdjse.sqlite3.database.admin.create.database.with.notes.table 
   z3r0-mdjse.sqlite3.database.admin.delete.all.notes 
   z3r0-mdjse.sqlite3.database.admin.delete.database 
+  z3r0-mdjse.sqlite3.database.user.does.table.exist 
   z3r0-mdjse.sqlite3.database.user.list.all.tables 
   z3r0-mdjse.sqlite3.database.user.notes.get.notes.count 
   z3r0-mdjse.sqlite3.database.user.notes.list.all.notes.in.menu.get.note.by.key 
