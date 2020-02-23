@@ -52,14 +52,31 @@ export default class operations {
         chalker.printBlackBgYellow(`this message was printed with chalker`)
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.input.password.with.minimum.required.length`, async () => {
-        let minPasswordLen = 5
-        let password = await inqer.inputPass(
-          `enter your new password (must be at least ${minPasswordLen} characters)`,
-          minPasswordLen
-        )
-        console.log(`you entered [${password}]`)
-      }),
+      new op(
+        `z3r0-mdjse.input.password.with.minimum.required.length.input.hidden`,
+        async () => {
+          let minPasswordLen = 5
+          let password = await inqer.inputPass(
+            `enter your new password (must be at least ${minPasswordLen} characters)`,
+            minPasswordLen
+          )
+          console.log(`you entered [${password}]`)
+        }
+      ),
+      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
+      new op(
+        `z3r0-mdjse.input.password.with.minimum.required.length.input.masked`,
+        async () => {
+          let minPasswordLen = 5
+          let maskChar = `$`
+          let password = await inqer.inputPass(
+            `enter your new password (must be at least ${minPasswordLen} characters)`,
+            minPasswordLen,
+            maskChar
+          )
+          console.log(`you entered [${password}]`)
+        }
+      ),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(
         `z3r0-mdjse.print.random.int.with.input.and.validation.and.default.values`,
