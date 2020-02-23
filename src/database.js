@@ -11,7 +11,7 @@ export default class database {
   }
 
   static dbExists() {
-    const sfnc = `database.dbExists() ${constants.MDJSE.DATABASE.DATABASE_FILE}`
+    const sfnc = `static.database.dbExists() ${constants.MDJSE.DATABASE.DATABASE_FILE}`
 
     console.log(sfnc)
     let exists = fs.existsSync(constants.MDJSE.DATABASE.DATABASE_FILE)
@@ -20,7 +20,7 @@ export default class database {
   }
 
   static async createDb() {
-    const sfnc = `database.createDb() ${constants.MDJSE.DATABASE.DATABASE_FILE}`
+    const sfnc = `static.database.createDb() ${constants.MDJSE.DATABASE.DATABASE_FILE}`
 
     if (!database.dbExists()) {
       return new Promise(resolve => {
@@ -48,7 +48,7 @@ export default class database {
   }
 
   static deleteDb() {
-    const sfnc = `database.deleteDb()`
+    const sfnc = `static.database.deleteDb()`
 
     if (database.dbExists()) {
       fs.unlinkSync(constants.MDJSE.DATABASE.DATABASE_FILE)
@@ -61,7 +61,7 @@ export default class database {
   }
 
   async init() {
-    const sfnc = `database.init()`
+    const sfnc = `${this.constructor.name}.init()`
 
     console.log(
       `${sfnc} attempting to create table [${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}]`
@@ -84,7 +84,7 @@ export default class database {
   }
 
   async connect() {
-    const sfnc = `database.connect()`
+    const sfnc = `${this.constructor.name}.connect()`
 
     if (database.dbExists()) {
       return new Promise(resolve => {
@@ -115,7 +115,7 @@ export default class database {
     }
   }
   disconnect() {
-    const sfnc = `database.disconnect()`
+    const sfnc = `${this.constructor.name}.disconnect()`
     console.log(`${sfnc}`)
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
@@ -129,7 +129,7 @@ export default class database {
     }
   }
   async runSql(sql, params = []) {
-    const sfnc = `database.runSql(${sql})`
+    const sfnc = `${this.constructor.name}.runSql(${sql})`
     console.log(`${sfnc}`)
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
@@ -155,7 +155,7 @@ export default class database {
   }
 
   async runSelect(sql) {
-    const sfnc = `database.runSelect()`
+    const sfnc = `${this.constructor.name}.runSelect()`
     console.log(`${sfnc} sql = ${sql}`)
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
@@ -178,7 +178,7 @@ export default class database {
   }
 
   async getAllTables() {
-    const sfnc = `database.getAllTables()`
+    const sfnc = `${this.constructor.name}.getAllTables()`
     console.log(`${sfnc}`)
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
@@ -193,7 +193,7 @@ export default class database {
   }
 
   async tableExists(tableName) {
-    const sfnc = `database.tableExists([${tableName}])`
+    const sfnc = `${this.constructor.name}.tableExists([${tableName}])`
     let tables = await this.getAllTables()
 
     if (tables !== null && typeof tables !== constants.UNDEF) {
@@ -219,7 +219,7 @@ export default class database {
   }
 
   async getNumNotes() {
-    const sfnc = `database.getNumNotes()`
+    const sfnc = `${this.constructor.name}.getNumNotes()`
 
     console.log(`${sfnc}`)
 
@@ -236,7 +236,7 @@ export default class database {
     }
   }
   async addNewNote(s) {
-    const sfnc = `database.addNewNote()`
+    const sfnc = `${this.constructor.name}.addNewNote()`
 
     let notesTableExists = await this.tableExists(
       constants.MDJSE.DATABASE.TABLE_NAMES.NOTES
@@ -276,7 +276,7 @@ export default class database {
   }
 
   async getNoteByKey(k) {
-    const sfnc = `database.getNoteByKey(${k})`
+    const sfnc = `${this.constructor.name}.getNoteByKey(${k})`
     console.log(k.length)
 
     console.log(`${sfnc}`)
@@ -295,7 +295,7 @@ export default class database {
   }
 
   async getAllNotes() {
-    const sfnc = `database.getAllNotes()`
+    const sfnc = `${this.constructor.name}.getAllNotes()`
 
     console.log(`${sfnc}`)
 
@@ -317,7 +317,7 @@ export default class database {
   // )
 
   async getAllKeys() {
-    const sfnc = `database.getAllNoteKeys()`
+    const sfnc = `${this.constructor.name}.getAllNoteKeys()`
 
     console.log(`${sfnc}`)
 
@@ -335,7 +335,7 @@ export default class database {
   }
 
   async getAllNoteKeys() {
-    const sfnc = `database.getAllNoteKeys()`
+    const sfnc = `${this.constructor.name}.getAllNoteKeys()`
 
     console.log(`${sfnc}`)
 
@@ -353,7 +353,7 @@ export default class database {
   }
 
   async deleteAllNotes() {
-    const sfnc = `database.deleteAllNotes()`
+    const sfnc = `${this.constructor.name}.deleteAllNotes()`
 
     console.log(`${sfnc}`)
 
