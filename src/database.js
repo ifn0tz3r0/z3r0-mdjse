@@ -129,7 +129,7 @@ export default class database {
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
       if (this._data.db.open === true) {
         return new Promise((resolve, reject) => {
-          this._data.db.run(sql, params, function(e) {
+          this._data.db.run(sql, params, e => {
             if (e) {
               console.log(e)
               reject(e)
@@ -285,7 +285,7 @@ export default class database {
 
     console.log(`${sfnc}`)
 
-    await this.runSql(`DELETE FROM ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`)
+    await this.runSql(`delete from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`)
     console.log(`${sfnc} all notes deleted`)
   }
 }
