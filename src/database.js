@@ -141,10 +141,14 @@ export default class database {
           })
         })
       } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
+        throw new Error(
+          `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`
+        )
       }
     } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
+      throw new Error(
+        `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`
+      )
     }
   }
 
@@ -164,10 +168,14 @@ export default class database {
           })
         })
       } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
+        throw new Error(
+          `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`
+        )
       }
     } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
+      throw new Error(
+        `${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`
+      )
     }
   }
 
@@ -175,15 +183,7 @@ export default class database {
     const sfnc = `${this.constructor.name}.getAllTables()`
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(`select name from sqlite_master where type = 'table'`)
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    return await this.runSelect(`select name from sqlite_master where type = 'table'`)
   }
 
   async tableExists(tableName) {
@@ -217,17 +217,9 @@ export default class database {
 
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(
-          `select count (*) as count from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    return await this.runSelect(
+      `select count (*) as count from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`
+    )
   }
   async addNewNote(s) {
     const sfnc = `${this.constructor.name}.addNewNote(${s})`
@@ -263,17 +255,9 @@ export default class database {
     const sfnc = `${this.constructor.name}.getNoteByKey(${k})`
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(
-          `select * from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} where key = '${k}'`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    return await this.runSelect(
+      `select * from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} where key = '${k}'`
+    )
   }
 
   async getAllNotes() {
@@ -281,17 +265,9 @@ export default class database {
 
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(
-          `select * from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} order by created asc`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    return await this.runSelect(
+      `select * from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} order by created asc`
+    )
   }
 
   async getAllNoteKeys() {
@@ -299,17 +275,9 @@ export default class database {
 
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        return await this.runSelect(
-          `select key from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} order by created asc`
-        )
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    return await this.runSelect(
+      `select key from ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES} order by created asc`
+    )
   }
 
   async deleteAllNotes() {
@@ -317,15 +285,7 @@ export default class database {
 
     console.log(`${sfnc}`)
 
-    if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
-      if (this._data.db.open === true) {
-        await this.runSql(`DELETE FROM ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`)
-        console.log(`${sfnc} all notes deleted`)
-      } else {
-        console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-      }
-    } else {
-      console.log(`${sfnc} ${constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_NOT_CONNECTED}`)
-    }
+    await this.runSql(`DELETE FROM ${constants.MDJSE.DATABASE.TABLE_NAMES.NOTES}`)
+    console.log(`${sfnc} all notes deleted`)
   }
 }
