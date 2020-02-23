@@ -32,6 +32,9 @@ export default class utils {
   static regexStringContainsAllCharacters(s) {
     return /^[a-zA-Z]+$/.test(s)
   }
+  static regexStringContainsAllCharactersOrSpaces(s) {
+    return /^[A-Za-z\s]+$/.test(s)
+  }
   static regexStringContainsAllIntegers(s) {
     return /^\d+$/.test(s)
   }

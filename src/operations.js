@@ -70,7 +70,7 @@ export default class operations {
           let minPasswordLen = 5
           let maskChar = `$`
           let password = await inqer.inputPass(
-            `enter your new password (must be at least ${minPasswordLen} characters)`,
+            `enter your new password (must be at least ${minPasswordLen} characters):`,
             minPasswordLen,
             maskChar
           )
@@ -85,11 +85,11 @@ export default class operations {
           let defaultMin = utils.randomInt(0, 10000)
           let defaultMax = utils.randomInt(0, 10000)
           let min = parseInt(
-            await inqer.inputInt(`input minimum int value (must be >= 0)`, defaultMin),
+            await inqer.inputInt(`input minimum int value (must be >= 0):`, defaultMin),
             radix
           )
           let max = parseInt(
-            await inqer.inputInt(`input maximum int value (must be >= 0)`, defaultMax),
+            await inqer.inputInt(`input maximum int value (must be >= 0):`, defaultMax),
             radix
           )
 
@@ -146,7 +146,7 @@ export default class operations {
         console.log(treeify.asTree(jsonObject, showValues))
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(`z3r0-mdjse.string.input.with.validation`, async () => {
+      new op(`z3r0-mdjse.string.input`, async () => {
         let name = await inqer.inputStr(`what is your first name?`)
         console.log(`your first name is [${name}]`)
       }),
@@ -156,7 +156,7 @@ export default class operations {
         async () => {
           let minLen = 2
           let name = await inqer.inputStr(
-            `what is your first name? (value must be 2 characters or longer)`,
+            `what is your first name? (must be 2 characters or longer):`,
             minLen
           )
           console.log(`your first name is [${name}]`)
@@ -164,30 +164,14 @@ export default class operations {
       ),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
       new op(
-        `z3r0-mdjse.string.input.with.validation.and.minimum.required.length.characters.only`,
+        `z3r0-mdjse.string.input.with.validation.and.minimum.required.length.only.allow.charcters.a-zA-Z`,
         async () => {
           let minLen = 2
           let charsOnly = true
           let name = await inqer.inputStr(
-            `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z)`,
+            `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z) (3) whitespace not allowed:`,
             minLen,
             charsOnly
-          )
-          console.log(`your first name is [${name}]`)
-        }
-      ),
-      //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
-      new op(
-        `z3r0-mdjse.string.input.with.validation.and.minimum.required.length.characters.only.disallow.whitespace`,
-        async () => {
-          let minLen = 2
-          let charsOnly = true
-          let allowWhiteSpace = false
-          let name = await inqer.inputStr(
-            `what is your first name? (1) must be 2 characters or longer (2) must be letters of the alphabet (a-z or A-Z) (3) must not contain whitespace`,
-            minLen,
-            charsOnly,
-            allowWhiteSpace
           )
           console.log(`your first name is [${name}]`)
         }
