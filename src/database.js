@@ -26,7 +26,6 @@ export default class database {
       return new Promise(resolve => {
         new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
           if (e) {
-            console.log(e)
             resolve(false)
           } else {
             resolve(true)
