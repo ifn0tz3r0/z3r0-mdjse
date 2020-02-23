@@ -244,11 +244,13 @@ export default class operations {
       new op(
         `z3r0-mdjse.sqlite3.database.user.notes.list.all.notes.in.menu.get.note.by.key`,
         async () => {
+          let db = null
           if (database.dbExists()) {
-            let db = new database()
+            db = new database()
             await db.connect()
 
             let notes = await db.getAllNotes()
+            db.disconnect()
 
             if (notes !== null && typeof notes !== constants.UNDEF) {
               if (notes.constructor === Array) {
@@ -284,6 +286,9 @@ export default class operations {
 
                   console.log(noteChoice)
                   console.log(noteChoice.key)
+
+                  db = new database()
+                  await db.connect()
 
                   let rows = await db.getNoteByKey(noteChoice.key)
                   db.disconnect()

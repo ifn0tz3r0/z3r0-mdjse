@@ -143,8 +143,6 @@ new op(`z3r0-mdjse.new.unnamed.op`, async () => {
 
 sqlite3
 
-you may need to run your command prompt as administrator on windows in order to delete or create database files
-
 ```
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 z3r0-mdjse
