@@ -220,9 +220,12 @@ export default class operations {
           throw new Error(`error: request returned null or undefined`)
         }
       }),
-      new op(`z3r0-mdjse.sqlite3.database.admin.create.with.notes.table`, async () => {
-        await database.createDb()
-      }),
+      new op(
+        `z3r0-mdjse.sqlite3.database.admin.create.database.with.notes.table`,
+        async () => {
+          await database.createDb()
+        }
+      ),
       new op(`z3r0-mdjse.sqlite3.database.admin.delete.all.notes`, async () => {
         if (database.dbExists()) {
           let db = new database()
