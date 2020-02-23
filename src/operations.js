@@ -156,7 +156,7 @@ export default class operations {
         async () => {
           let minLen = 2
           let name = await inqer.inputStr(
-            `what is your first name? (must be 2 characters or longer)`,
+            `what is your first name? (must be 2 characters or longer):`,
             minLen
           )
           console.log(`your first name is [${name}]`)
