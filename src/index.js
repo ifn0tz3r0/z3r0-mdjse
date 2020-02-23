@@ -1,6 +1,6 @@
 const inq = require('inquirer')
 
-import { constants, utils, operations, chalker } from './internal'
+import { constants, utils, operations, database, chalker } from './internal'
 
 const main = () => {
   let loop = true
@@ -21,6 +21,11 @@ const main = () => {
       await utils.clearConsole()
       utils.printDivider()
       chalker.printAppTitle(constants.MDJSE.APP_TITLE)
+      utils.printDivider()
+      const bDbFound = database.dbExists()
+      console.log(
+        `{db detected @ ${constants.MDJSE.DATABASE.DATABASE_FILE} = ${bDbFound}}`
+      )
       utils.printDivider()
       let opChoice = await inq
         .prompt([
