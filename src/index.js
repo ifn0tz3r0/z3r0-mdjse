@@ -50,7 +50,7 @@ const main = () => {
         break
       }
 
-      opChoiceCache = opChoice.id
+      opChoiceCache = opChoice
 
       utils.printDivider()
       console.log(utils.dateTimeNowISO())
