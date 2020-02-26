@@ -1,6 +1,6 @@
 # z3r0-mdjse
 
-![](gitimg/z3r0-mdjse.gif)
+![](gitimg/z3r0-mdjse-0001.gif)
 
 menu driven javascript executor w/sqlite3
 

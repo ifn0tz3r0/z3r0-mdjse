@@ -18,7 +18,8 @@ const constants = {
       ERROR_DATABASE_NOT_CONNECTED: `error: database not connected`,
       ERROR_DATABASE_QUERY_RETURNED_NULL_OR_UNDEF: `error: query returned null or undefined`,
       ERROR_DATABASE_QUERY_EXPECTED_NO_MORE_THAN_ONE: `error: expected no more than one result from query`,
-      ERROR_DATABASE_ATTEMPT_MADE_ON_NONEXIST_TABLE: `error: an attempt was made to access a table that does not exist`
+      ERROR_DATABASE_ATTEMPT_MADE_ON_NONEXIST_TABLE: `error: an attempt was made to access a table that does not exist`,
+      ERROR_HTTP_REQUEST_RETURNED_NULL_OR_UNDEF: `error: http request returned null or undefined`
     }
   }
 }
