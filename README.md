@@ -2,12 +2,12 @@
 
 ![](gitimg/z3r0-mdjse.gif)
 
-menu driven javascript executor
+menu driven javascript executor w/sqlite3
 
 my node -v
 v8.12.0
 
-utilizes: [nodejs, async/await, fetch, inquirer, treeify, chalker, babel, JSON.stringify]
+utilizes: [nodejs, async/await, fetch, inquirer, treeify, chalker, babel, sqlite3]
 
 1. clone and install node modules
 

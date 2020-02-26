@@ -20,35 +20,45 @@ export default class database {
   }
 
   static async createDb() {
-    const sfnc = `static.database.createDb() ${constants.MDJSE.DATABASE.DATABASE_FILE}`
+    const sfnc = `static.database.createDb()`
 
     if (!database.dbExists()) {
       return new Promise(resolve => {
         let d = new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
-          if (e) {
-            resolve(false)
-          } else {
+          if (e === null) {
+            /*
+            close raw connection, so we can reconnect properly for init, else on windows error:
+              Error: EBUSY: resource busy or locked, unlink 'z3r0-mdjse-database.sqlite3'
+            */
+            d.close()
             resolve(true)
+          } else {
+            console.log(e)
+            resolve(false)
           }
         })
-        if (d !== null && typeof d !== constants.UNDEF) {
-          console.log(d)
-          console.log(`closing database connection post creation`)
-          d.close()
-        }
       }).then(async r => {
         if (r === true) {
-          console.log(`${sfnc} success = ${r}`)
+          console.log(
+            `${sfnc} success, database created @ ${constants.MDJSE.DATABASE.DATABASE_FILE}`
+          )
           let db = new database()
+          console.log(
+            `${sfnc} attempting first connection and creation of initial tables`
+          )
           await db.connect()
           await db.init()
           db.disconnect()
+          console.log(`${sfnc} table creation and initialization success`)
         } else {
-          throw new Error(`${sfnc} an error occurred during attempt to create database`)
+          throw new Error(
+            `${sfnc} an error occurred when attempting to create the database.`
+          )
         }
       })
     } else {
       console.log(`${sfnc} database was not created because it already exists`)
+      return false
     }
   }
 
@@ -86,15 +96,15 @@ export default class database {
         this._data.db = new sqlite3.Database(
           constants.MDJSE.DATABASE.DATABASE_FILE,
           e => {
-            if (e) {
-              resolve(false)
-            } else {
+            if (e === null) {
               resolve(true)
+            } else {
+              resolve(false)
             }
           }
         )
       }).then(r => {
-        if (r) {
+        if (r === true) {
           console.log(
             `${sfnc} success = ${r}, connected @ ${constants.MDJSE.DATABASE.DATABASE_FILE}`
           )
