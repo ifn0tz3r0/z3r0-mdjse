@@ -52,7 +52,7 @@ export default class database {
           console.log(`${sfnc} table creation and initialization success`)
         } else {
           throw new Error(
-            `${sfnc} an error occurred when attempting to create the database.`
+            `${sfnc} an error occurred when attempting to create the database`
           )
         }
       })
