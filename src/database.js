@@ -26,8 +26,11 @@ export default class database {
       return new Promise(resolve => {
         let d = new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
           if (e === null) {
-            /*close raw connection, so we can reconnect properly for init*/
-            //d.close()
+            /*
+            close raw connection, so we can reconnect properly for init, else on windows error:
+              Error: EBUSY: resource busy or locked, unlink 'z3r0-mdjse-database.sqlite3'
+            */
+            d.close()
             resolve(true)
           } else {
             console.log(e)
