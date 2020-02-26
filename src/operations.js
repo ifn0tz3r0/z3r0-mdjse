@@ -188,7 +188,9 @@ export default class operations {
         if (j !== null && typeof j !== constants.UNDEF) {
           console.log(j)
         } else {
-          throw new Error(`error: request returned null or undefined`)
+          throw new Error(
+            constants.MDJSE.ERROR_MSGS.ERROR_HTTP_REQUEST_RETURNED_NULL_OR_UNDEF
+          )
         }
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
@@ -206,7 +208,9 @@ export default class operations {
             throw new Error(`error: could not parse USD field from json`)
           }
         } else {
-          throw new Error(`error: request returned null or undefined`)
+          throw new Error(
+            constants.MDJSE.ERROR_MSGS.ERROR_HTTP_REQUEST_RETURNED_NULL_OR_UNDEF
+          )
         }
       }),
       //  ///////////// ///////////// ///////////// ///////////// ///////////// /////////////
@@ -217,7 +221,9 @@ export default class operations {
           let showTreeValues = true
           console.log(treeify.asTree(j, showTreeValues))
         } else {
-          throw new Error(`error: request returned null or undefined`)
+          throw new Error(
+            constants.MDJSE.ERROR_MSGS.ERROR_HTTP_REQUEST_RETURNED_NULL_OR_UNDEF
+          )
         }
       }),
       new op(
@@ -387,7 +393,10 @@ export default class operations {
                   )
                 }
               } else {
-                console.log(`error: expected one row`)
+                console.log(
+                  constants.MDJSE.ERROR_MSGS
+                    .ERROR_DATABASE_QUERY_EXPECTED_NO_MORE_THAN_ONE
+                )
               }
             } else {
               console.log(constants.MDJSE.ERROR_MSGS.ERROR_DATABASE_EXPECTED_ARRAY)
