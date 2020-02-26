@@ -99,6 +99,7 @@ export default class database {
             if (e === null) {
               resolve(true)
             } else {
+              console.log(e)
               resolve(false)
             }
           }
