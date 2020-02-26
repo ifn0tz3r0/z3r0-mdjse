@@ -279,8 +279,8 @@ export default class operations {
                   let noteChoice = await inq
                     .prompt([
                       {
-                        type: 'list',
-                        message: 'select a note:',
+                        type: `list`,
+                        message: `select a note:`,
                         choices: inqerChoices,
                         name: `noteChoice`,
                         pageSize: constants.MDJSE.MAX_MENU_LEN

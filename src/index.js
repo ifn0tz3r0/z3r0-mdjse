@@ -33,8 +33,8 @@ const main = () => {
       let opChoice = await inq
         .prompt([
           {
-            type: 'list',
-            message: 'select an operation:',
+            type: `list`,
+            message: `select an operation:`,
             choices: opMenuChoices,
             name: `opChoice`,
             default: opChoiceCache,
