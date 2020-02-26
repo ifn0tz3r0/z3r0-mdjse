@@ -1,21 +1,24 @@
 const inq = require('inquirer')
 
-import { constants, utils, operations, database, chalker } from './internal'
+import { constants, utils, operations, op, database, chalker } from './internal'
 
 const main = () => {
   let loop = true
   let opChoiceCache = null
   const exit = `[exit]`
+  const ops = operations.getOps().sort((a, b) => (a.id > b.id ? 1 : -1))
+  let opMenuChoices = []
 
-  const ops = operations.getOps()
-
-  let menu = []
-  ops.map(o => {
-    menu.push(o.id)
+  ops.map(op => {
+    opMenuChoices.push({
+      name: `${op.id}`,
+      value: op
+    })
   })
-
-  menu = menu.sort((a, b) => (a > b ? 1 : -1))
-  menu.push(exit)
+  opMenuChoices.push({
+    name: exit,
+    value: new op(exit, () => {})
+  })
   ;(async () => {
     do {
       await utils.clearConsole()
@@ -32,7 +35,7 @@ const main = () => {
           {
             type: 'list',
             message: 'select an operation:',
-            choices: menu,
+            choices: opMenuChoices,
             name: `opChoice`,
             default: opChoiceCache,
             pageSize: constants.MDJSE.MAX_MENU_LEN
@@ -42,21 +45,19 @@ const main = () => {
           return answer.opChoice
         })
 
-      if (opChoice === exit) {
+      if (opChoice.id === exit) {
         loop = false
         break
       }
 
-      opChoiceCache = opChoice
+      opChoiceCache = opChoice.id
 
-      let op = ops.find(o => {
-        return o.id === opChoice
-      })
-
+      utils.printDivider()
+      console.log(utils.dateTimeNowISO())
       utils.printDivider()
       utils.printNewline()
       try {
-        await op.method()
+        await opChoice.method()
       } catch (e) {
         utils.printDivider()
         console.log(`an error occurred during the operation`)
