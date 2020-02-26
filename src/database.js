@@ -139,17 +139,21 @@ export default class database {
 
     if (this._data.db !== null && typeof this._data.db !== constants.UNDEF) {
       if (this._data.db.open === true) {
-        return new Promise((resolve, reject) => {
+        return new Promise(resolve => {
           this._data.db.run(sql, params, e => {
-            if (e) {
-              console.log(e)
-              reject(e)
+            if (e === null) {
+              resolve(true)
             } else {
-              resolve({
-                msg: `${sfnc} success`
-              })
+              console.log(e)
+              resolve(false)
             }
           })
+        }).then(r => {
+          if (r === true) {
+            console.log(`${sfnc} success`)
+          } else {
+            throw new Error(`${sfnc} an error occurred`)
+          }
         })
       } else {
         throw new Error(
@@ -171,12 +175,19 @@ export default class database {
       if (this._data.db.open === true) {
         return new Promise(resolve => {
           this._data.db.all(sql, (e, rows) => {
-            if (e) {
-              resolve(null)
-            } else {
+            if (e === null) {
               resolve(rows)
+            } else {
+              console.log(e)
+              resolve(false)
             }
           })
+        }).then(r => {
+          if (r === false) {
+            throw new Error(`${sfnc} an error occurred `)
+          } else {
+            return r
+          }
         })
       } else {
         throw new Error(
