@@ -27,7 +27,7 @@ export default class database {
         let d = new sqlite3.Database(constants.MDJSE.DATABASE.DATABASE_FILE, e => {
           if (e === null) {
             /*close raw connection, so we can reconnect properly for init*/
-            d.close()
+            //d.close()
             resolve(true)
           } else {
             console.log(e)
