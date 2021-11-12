@@ -6,15 +6,17 @@ const main = () => {
   let loop = true
   let opChoiceCache = null
   const exit = `[exit]`
-  const ops = operations.getOps().sort((a, b) => (a.id > b.id ? 1 : -1))
   let opMenuChoices = []
 
-  ops.map(op => {
-    opMenuChoices.push({
-      name: `${op.id}`,
-      value: op
+  operations
+    .getOps()
+    .sort((a, b) => (a.id > b.id ? 1 : -1))
+    .map(op => {
+      opMenuChoices.push({
+        name: `${op.id}`,
+        value: op
+      })
     })
-  })
   opMenuChoices.push({
     name: exit,
     value: new op(exit, () => {})
