@@ -5,7 +5,7 @@
 menu driven javascript executor w/sqlite3
 
 my node -v
-v8.12.0
+v16.11.1
 
 utilizes: [nodejs, async/await, fetch, inquirer, treeify, chalker, babel, sqlite3]
 
