@@ -13,7 +13,7 @@ module.exports = function(api) {
   ]
   const plugins = [
     [`@babel/plugin-transform-runtime`],
-    [`@babel/plugin-proposal-class-properties`]
+    [`@babel/plugin-transform-class-properties`]
   ]
   return {
     presets,
