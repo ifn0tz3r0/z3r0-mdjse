@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "menu driven javascript executor",
   "main": "src/index.js",
+  "engines": {
+    "node": "16.11.1",
+    "npm": "8.0.0"
+  },
   "scripts": {
     "q": "rm -rf ./dist && npm run prettier && npm run build && babel-node dist/index.js",
     "q-win": "if exist dist ( rmdir /s /q dist ) && npm run prettier && npm run build && babel-node dist/index.js",
